@@ -11,9 +11,9 @@ try:
     driver.get("https://testsheepnz.github.io/BasicCalculator.html")
     time.sleep(2)
     
-    driver.find_element(By.ID, "number1Field").send_keys("10")
+    driver.find_element(By.ID, "number1Field").send_keys("9999999999")
     time.sleep(1)  
-    driver.find_element(By.ID, "number2Field").send_keys("20a")
+    driver.find_element(By.ID, "number2Field").send_keys("9999999999")
     time.sleep(1)  
     driver.find_element(By.XPATH, "/html/body/section/div/div/div/form[2]/div[3]/div[2]/select/option[3]").click()
     time.sleep(1)
@@ -21,15 +21,14 @@ try:
     
     time.sleep(4)  
     
-    errorMsg = driver.find_element(By.ID, "errorMsgField").text
+    ans_field = driver.find_element(By.ID, "numberAnswerField")
+    ans = ans_field.get_attribute("value")
     time.sleep(1)
 
-    if errorMsg == "Number 1 is not a number":
-        print(f"First input is invalid")
-    elif errorMsg == "Number 2 is not a number":
-        print(f"Second input is invalid")
+    if ans == 99999999980000000001:
+        print(f"Answer is correct: {ans}")
     else:
-        print("Valid Number Entered")
+        print(f"Answer is incorrect: {ans}")
 
 finally:
     driver.quit()
