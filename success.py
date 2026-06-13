@@ -11,9 +11,9 @@ try:
     driver.get("https://testsheepnz.github.io/BasicCalculator.html")
     time.sleep(2)
     
-    driver.find_element(By.ID, "number1Field").send_keys("9999999999")
+    driver.find_element(By.ID, "number1Field").send_keys("10")
     time.sleep(1)  
-    driver.find_element(By.ID, "number2Field").send_keys("9999999999")
+    driver.find_element(By.ID, "number2Field").send_keys("20")
     time.sleep(1)  
     driver.find_element(By.XPATH, "/html/body/section/div/div/div/form[2]/div[3]/div[2]/select/option[3]").click()
     time.sleep(1)
@@ -25,7 +25,7 @@ try:
     ans = ans_field.get_attribute("value")
     time.sleep(1)
 
-    if ans == 99999999980000000001:
+    if ans == 200:
         print(f"Answer is correct: {ans}")
     else:
         print(f"Answer is incorrect: {ans}")
